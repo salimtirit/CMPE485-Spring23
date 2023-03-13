@@ -5,7 +5,7 @@ public class FollowCube : MonoBehaviour
     public Transform target;
 
     public float smoothSpeed = 0.125f;
-    public Vector3 offset;
+    public Vector3 offset = new Vector3(10,5,0);
 
     private void FixedUpdate() {
         Vector3 desiredPosition =  target.position + offset;
