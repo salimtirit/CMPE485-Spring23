@@ -5,7 +5,7 @@ using UnityEngine;
 public class SphereController : MonoBehaviour
 {
     private Rigidbody rb;
-
+   Vector3 initialLocation = new Vector3(13.77f,4.05f,-18.3f);
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +28,9 @@ public class SphereController : MonoBehaviour
            rb.AddForce(new Vector3(5f,0f,0f));
         }
 
-        //if(position is not in the game field spawn back)
+      if(this.transform.position.x > 18 || this.transform.position.x < -49.5f || this.transform.position.z < -49.5f || this.transform.position.z > 49.5f){
+         this.transform.position = initialLocation;
+         rb.velocity = Vector3.zero;
+      }
     }
 }
