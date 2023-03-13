@@ -16,7 +16,7 @@ public class CubeSpawnScript : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space)){
-            Instantiate(cube, transform.position, transform.rotation);
+            Instantiate(cube, new Vector3(-13f,10f,-18.3f), transform.rotation);
         }
     }
 }
