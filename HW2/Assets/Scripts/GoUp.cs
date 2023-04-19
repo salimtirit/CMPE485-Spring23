@@ -30,7 +30,7 @@ public class GoUp : MonoBehaviour
             
             //Debug.Log(transform.position);
             
-            yield return new WaitForSeconds(.01f);
+            yield return new WaitForSeconds(.001f);
         }
     }
 
