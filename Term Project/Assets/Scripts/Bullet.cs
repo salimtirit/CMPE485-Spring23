@@ -33,12 +33,9 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "zombie" || collision.gameObject.tag == "zombie(Clone)")
         {
             Debug.Log("Zombie hit");
+            _gun.IncrementScore();
             // destroy zombie
             Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.tag == "Wall")
-        {
-            Debug.Log("Wall hit");
         }
         else
         {

@@ -34,12 +34,12 @@ public class ObjectSpawner : MonoBehaviour
     // Update is called once per frame
     void Update() { }
 
-    // create a coroutine that spawns an object every 2 seconds based on a random number
+    // create a coroutine that spawns an object every 4 seconds based on a random number
     IEnumerator SpawnObject()
     {
         while (true)
         {
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(7.0f);
             GetObject();
         }
     }

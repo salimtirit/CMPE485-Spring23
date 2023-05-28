@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
@@ -19,8 +20,20 @@ public class Gun : MonoBehaviour
     [SerializeField]
     CharacterController _controller;
 
+    private Vector3 _bulletScale = new Vector3(0.1f, 0.1f, 0.1f);
+
+    [SerializeField]
+    Text scoreText;
+
+    public int score = 0;
+
     float _nextShootTime;
     Queue<Bullet> _pool = new Queue<Bullet>();
+
+    void Start()
+    {
+        scoreText.text = "" + score;
+    }
 
     void Update()
     {
@@ -40,6 +53,7 @@ public class Gun : MonoBehaviour
         var characterVelocity = _controller.velocity;
         characterVelocity.y = 0.0f;
 
+        bullet.transform.localScale = _bulletScale;
         bullet.GetComponent<Rigidbody>().velocity =
             BulletSpawnPoint.forward * _bulletSpeed + characterVelocity;
     }
@@ -64,6 +78,12 @@ public class Gun : MonoBehaviour
         }
     }
 
+    public void IncrementScore()
+    {
+        score++;
+        scoreText.text = "" + score;
+    }
+
     public void AddToPool(Bullet bullet)
     {
         _pool.Enqueue(bullet);
@@ -85,26 +105,27 @@ public class Gun : MonoBehaviour
     public void BoostFireRate()
     {
         // increase bullet speed for 5 seconds
-        _bulletSpeed = 20.0f;
+        var currentBulletSpeed = _bulletSpeed;
+        _bulletSpeed = currentBulletSpeed * 2;
         StartCoroutine(ResetBulletSpeed());
     }
 
     IEnumerator ResetBulletSpeed()
     {
         yield return new WaitForSeconds(5.0f);
-        _bulletSpeed = 10.0f;
+        _bulletSpeed = _bulletSpeed / 2;
     }
 
     //make the bullets bigger for 5 seconds
     public void BoostBulletSize()
     {
-        BulletPrefab.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        _bulletScale = new Vector3(0.2f, 0.2f, 0.2f);
         StartCoroutine(ResetBulletSize());
     }
 
     IEnumerator ResetBulletSize()
     {
         yield return new WaitForSeconds(5.0f);
-        BulletPrefab.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        _bulletScale = new Vector3(0.1f, 0.1f, 0.1f);
     }
 }

@@ -20,7 +20,7 @@ public class ZombieSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _interval = 2.0f;
+        _interval = 3.0f;
 
         CalculateEnemyAreaBounds();
         StartCoroutine(SpawnZombie());
@@ -46,12 +46,12 @@ public class ZombieSpawn : MonoBehaviour
         }
     }
 
-    // decrement the interval by 0.1 every 5 seconds
+    // decrement the interval by 0.1 every 10 seconds
     IEnumerator DecrementInterval()
     {
         while (true)
         {
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(10.0f);
             _interval -= 0.1f;
         }
     }
@@ -59,19 +59,19 @@ public class ZombieSpawn : MonoBehaviour
     // return a zombie from the pool
     GameObject GetZombie()
     {
-        // pick a random number between 0 and 3
-        var random = Random.Range(0, 6);
+        // pick a random number between 0 and 11
+        var random = Random.Range(0, 11);
 
         // pick a random position within the enemy area
         var position = new Vector3(Random.Range(x_min, x_max), 0.0f, Random.Range(z_min, z_max));
 
         //pick one of the zombies based on the random number
-        if (random <= 2)
+        if (random <= 4)
         {
             var zombie = Instantiate(walkingZombie, position, walkingZombie.transform.rotation);
             return zombie;
         }
-        else if (random <= 5)
+        else if (random <= 9)
         {
             var zombie = Instantiate(
                 walkingHandsUpZombie,

@@ -15,7 +15,14 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() { }
+    void Update()
+    {
+        // if the player falls off the platform, show the death menu
+        if (transform.position.y < -10)
+        {
+            deathMenu.ToggleEndMenu("You Lose!");
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {

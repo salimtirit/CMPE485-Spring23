@@ -6,7 +6,7 @@ public class Wall : MonoBehaviour
 {
     public DeathMenu deathMenu;
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "zombie")
         {
