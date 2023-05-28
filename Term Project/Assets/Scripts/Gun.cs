@@ -71,6 +71,40 @@ public class Gun : MonoBehaviour
 
     bool CanShoot()
     {
-        return Time.time >= _nextShootTime;
+        // if the left mouse key is pressed
+        if (Input.GetMouseButton(0))
+        {
+            return true && Time.time >= _nextShootTime;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void BoostFireRate()
+    {
+        // increase bullet speed for 5 seconds
+        _bulletSpeed = 20.0f;
+        StartCoroutine(ResetBulletSpeed());
+    }
+
+    IEnumerator ResetBulletSpeed()
+    {
+        yield return new WaitForSeconds(5.0f);
+        _bulletSpeed = 10.0f;
+    }
+
+    //make the bullets bigger for 5 seconds
+    public void BoostBulletSize()
+    {
+        BulletPrefab.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        StartCoroutine(ResetBulletSize());
+    }
+
+    IEnumerator ResetBulletSize()
+    {
+        yield return new WaitForSeconds(5.0f);
+        BulletPrefab.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
     }
 }

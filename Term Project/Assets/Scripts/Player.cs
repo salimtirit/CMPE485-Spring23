@@ -4,9 +4,38 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public DeathMenu deathMenu;
+
+    public Gun gun;
+
     // Start is called before the first frame update
-    void Start() { }
+    void Start()
+    {
+        gun = FindObjectOfType<Gun>();
+    }
 
     // Update is called once per frame
     void Update() { }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Player Script" + other.gameObject.tag);
+        if (other.gameObject.tag == "zombie" || other.gameObject.tag == "zombie(Clone)")
+        {
+            deathMenu.ToggleEndMenu("You Lose!");
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "Star")
+        {
+            Destroy(other.gameObject);
+            gun.BoostFireRate();
+        }
+
+        if (other.gameObject.tag == "Cuboid")
+        {
+            Destroy(other.gameObject);
+            gun.BoostBulletSize();
+        }
+    }
 }
