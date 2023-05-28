@@ -3130,6 +3130,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 9b220abdc8e091e428639b6ff85692b0, type: 2}
     - target: {fileID: 2821705673051561584, guid: 3fc233a9407d11f46a1983e4692babf9, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 699306481}
+    - target: {fileID: 2821705673051561584, guid: 3fc233a9407d11f46a1983e4692babf9, type: 3}
       propertyPath: _controller
       value: 
       objectReference: {fileID: 2976398138894290992}
@@ -5152,6 +5156,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 321164d6a31a5974387d909fa161059c, type: 3}
+--- !u!1 &1616114817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: b68c72ed5517705458d50fb6e935c659, type: 3}
+  m_PrefabInstance: {fileID: 576455791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1616114819
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616114817}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3435769, y: 3.906205, z: 9.482014}
+  m_Center: {x: 0.79817176, y: 1.9501294, z: 0.059774227}
 --- !u!4 &1646927592 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: b1766c5263fa4eb4ab0661bea258d7b8, type: 3}
@@ -5225,7 +5247,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 86bdefa1b1d15714283c1adcf7540c41, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dc7eaab729518634f8366abea0475428, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -5931,6 +5953,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: f6236ebf8fbb4614a8f7c14192266205, type: 3}
   m_PrefabInstance: {fileID: 1720874460}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1902081647 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: b68c72ed5517705458d50fb6e935c659, type: 3}
+  m_PrefabInstance: {fileID: 1353966428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1902081649
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902081647}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2842703, y: 4.3346243, z: 9.722656}
+  m_Center: {x: 0.734601, y: 1.667309, z: -0.0197348}
 --- !u!1001 &1909305279
 PrefabInstance:
   m_ObjectHideFlags: 0
